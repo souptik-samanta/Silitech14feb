@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silitech Valentine's Special</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .heart-beat {
+            animation: heartbeat 1s infinite;
+        }
+        .stock-warning {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { color: red; }
+            50% { color: #ff6b6b; }
+            100% { color: red; }
+        }
+        .countdown-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
+            min-width: 80px;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-pink-50">
+    <div id="timeCheck" class="hidden">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <h1 class="text-4xl text-red-600 font-bold mb-4">
+                ❤️ This Valentine's Special is Only Available on February 14th! ❤️
+            </h1>
+            <p class="mt-4 text-xl text-gray-700">
+                Please come back during Valentine's Day to grab these amazing deals!
+            </p>
+        </div>
+    </div>
+
+    <div id="mainContent">
+        <nav class="bg-red-700 text-white py-4">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <a href="https://silitech.uk" class="text-2xl font-bold">Silitech UK</a>
+                <div class="space-x-6">
+                    <a href="#" class="hover:text-pink-200">Home</a>
+                    <a href="https://silitech.uk" class="hover:text-pink-200">About</a>
+                    <a href="https://silitech.uk" class="hover:text-pink-200">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-red-600 text-white py-12">
+            <div class="container mx-auto px-4">
+                <h1 class="text-5xl font-bold text-center mb-8 animate__animated animate__fadeInDown">
+                    Silitech Valentine's Special 💝
+                </h1>
+                <div class="countdown-section rounded-lg p-6 max-w-3xl mx-auto">
+                    <h2 class="text-2xl mb-4">Time Remaining</h2>
+                    <div class="flex justify-center space-x-4">
+                        <div class="countdown-box">
+                            <div id="hours" class="text-4xl font-bold">00</div>
+                            <div class="text-sm">Hours</div>
+                        </div>
+                        <div class="countdown-box">
+                            <div id="minutes" class="text-4xl font-bold">00</div>
+                            <div class="text-sm">Minutes</div>
+                        </div>
+                        <div class="countdown-box">
+                            <div id="seconds" class="text-4xl font-bold">00</div>
+                            <div class="text-sm">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Intel Build -->
+                <div class="product-card bg-white rounded-lg shadow-xl p-8">
+                    <h2 class="text-3xl font-bold text-red-600 mb-6">Intel Love Bundle</h2>
+                    <img src="./intel.png" alt="Intel Build" class="w-full rounded-lg mb-6">
+                    <div class="space-y-3 text-gray-700 mb-6">
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> I5 7th Generation</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Zebronics H110 Motherboard</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> EVM Elite 8GB x 2</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> WD Blue NVMe 500GB</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Zebronics PSU</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Forntech Xylo Case</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Ant Sports Cooler</p>
+                    </div>
+                    <div class="stock-counter p-4 bg-pink-50 rounded-lg mb-6">
+                        <p class="text-xl font-bold text-red-600">
+                            <span class="stock-warning">Only <span id="intelCount" class="text-2xl">15</span> units left!</span>
+                        </p>
+                    </div>
+                    <button onclick="showContact()" class="heart-beat bg-red-600 text-white px-8 py-4 rounded-full hover:bg-red-700 w-full text-lg font-bold">
+                        Buy Now 💝
+                    </button>
+                </div>
+
+                <!-- Ryzen Build -->
+                <div class="product-card bg-white rounded-lg shadow-xl p-8">
+                    <h2 class="text-3xl font-bold text-red-600 mb-6">Ryzen Romance Edition</h2>
+                    <img src="./ryzen.png" alt="Ryzen Build" class="w-full rounded-lg mb-6">
+                    <div class="space-y-3 text-gray-700 mb-6">
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Ryzen 3 3200G</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> ASUS Prime B450M</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Corsair Vengeance LPX 8GB</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> WD Blue 500GB NVMe</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> ZEBRONICS Mercury Cabinet</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Zebronics PSU</p>
+                        <p class="flex items-center"><span class="text-red-500 mr-2">❤️</span> Ant Sports Cooler</p>
+                    </div>
+                    <div class="stock-counter p-4 bg-pink-50 rounded-lg mb-6">
+                        <p class="text-xl font-bold text-red-600">
+                            <span class="stock-warning">Only <span id="ryzenCount" class="text-2xl">12</span> units left!</span>
+                        </p>
+                    </div>
+                    <button onclick="showContact()" class="heart-beat bg-red-600 text-white px-8 py-4 rounded-full hover:bg-red-700 w-full text-lg font-bold">
+                        Buy Now 💝
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-red-700 text-white py-12">
+            <div class="container mx-auto px-4 text-center">
+                <p class="text-xl">Follow us for more tech love! ❤️</p>
+                <div class="mt-6 space-x-6">
+                    <a href="https://www.instagram.com/silitecharena" class="hover:text-pink-200">Instagram: @silitecharena</a>
+                    <a href="mailto:silitechservices@gmail.com" class="hover:text-pink-200">Email: silitechservices@gmail.com</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full animate__animated animate__fadeInUp">
+            <h2 class="text-3xl font-bold text-red-600 mb-6">Contact Us to Purchase</h2>
+            <div class="space-y-4">
+                <p class="text-lg">Call us at: +91 7439442752</p>
+                <p class="text-lg">Email: silitechservices@gmail.com</p>
+            </div>
+            <button onclick="hideContact()" class="mt-6 bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 w-full">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Check if current date is February 14th
+        function checkDate() {
+            const now = new Date();
+            const isValentinesDay = true; // Set to true to always show content
+            document.getElementById('timeCheck').classList.toggle('hidden', isValentinesDay);
+            document.getElementById('mainContent').classList.toggle('hidden', !isValentinesDay);
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+            const diff = endOfDay - now;
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Decrease stock count
+        function decreaseCount() {
+            const intelCount = document.getElementById('intelCount');
+            const ryzenCount = document.getElementById('ryzenCount');
+            
+            let intel = parseInt(intelCount.innerText);
+            let ryzen = parseInt(ryzenCount.innerText);
+
+            if (intel > 1) {
+                intel = Math.max(intel - Math.floor(Math.random() * 2), 1);
+                intelCount.innerText = intel;
+            }
+            if (ryzen > 1) {
+                ryzen = Math.max(ryzen - Math.floor(Math.random() * 2), 1);
+                ryzenCount.innerText = ryzen;
+            }
+        }
+
+        // Modal functions
+        function showContact() {
+            document.getElementById('contactModal').classList.remove('hidden');
+        }
+
+        function hideContact() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+
+        // Initialize
+        checkDate();
+        setInterval(updateCountdown, 1000);
+        setInterval(decreaseCount, 5000);
+    </script>
+</body>
+</html>
